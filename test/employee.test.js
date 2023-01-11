@@ -14,4 +14,17 @@ describe('Employee', () => {
         // assert
         expect(newEmp).toEqual(expectedEm);
     })
+
+    it('should return name when called', () => {
+        // arrange
+        // make new Employee
+        let e = new Employee('a', '111', 'a@b.com')
+        
+        // act 
+        // call getName
+
+        // assert
+        // make sure you got out what you put in
+        expect(e.getName()).toBe('a')
+    })
 })
