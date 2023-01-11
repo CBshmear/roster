@@ -15,30 +15,20 @@ function generateHtml() {
       cardString += makeEngineerCard(employees[i]);
     }
   }
-  // loop through employees array
-  // if manager, make manager card
-  //  cardsString += makeManagerCard(i)
-  // if employee, make employee card
-  // if intern, add intern card
-  /*
-        return `<html>
-                ...
-                    <div id=cards>
-                        ${cardsString}
-                    </div>
-                ...
-                </html>`
-    */
-  console.log(cardString);
+
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <link rel="stylesheet" href="./style.css">
+      <title>Employee List</title>
   </head>
   <body>
+    <header>
+      <h1>My Employees</h1>
+    </header>
       <div class="cards">
           ${cardString}
       </div>
@@ -49,36 +39,38 @@ function generateHtml() {
 
 function makeManagerCard(manager) {
   return `
-  <div class="manager">
+<div class="manager">
+  <h3>Manager</h3>
   <p>${manager.newName}</p>
-  <p>${manager.id}</p>
-  <p>${manager.email}</p>
-  <p>${manager.officeNumber}</p>
+  <p>ID: ${manager.id}</p>
+  <a href="mailto:${manager.email}">${manager.email}</a>
+  <p>Office Number: ${manager.officeNumber}</p>
 </div>
   `;
 }
 function makeInternCard(intern) {
   return `
-    <div class="intern">
- <p>${intern.newName}</p>
-  <p>${intern.id}</p>
-  <p>${intern.email}</p>
-  <p>${intern.school}</p>
+<div class="intern">
+    <h3>Intern</h3>
+    <p>${intern.newName}</p>
+    <p>ID: ${intern.id}</p>
+    <a href="mailto:${intern.email}">${intern.email}</a>
+    <p>School: ${intern.school}</p>
 </div>
     `;
 }
 function makeEngineerCard(engineer) {
-  return `<div class="engineer">
-   <p> ${engineer.newName}</p>
-    <p>${engineer.id}</p>
-    <p>${engineer.email}</p>
-    <p>${engineer.github}</p>
+  return `
+  <div class="engineer">
+    <h3>Engineer</h3>
+    <p> ${engineer.newName}</p>
+    <p>ID: ${engineer.id}</p>
+    <a href="mailto:${engineer.email}">${engineer.email}</a>
+    <br>
+    <br>
+    <a href="https://github.com/${engineer.github}">GitHub: ${engineer.github}</a>
   </div>`;
 }
-
-// intern
-
-// engineer
 
 // Prompt functions for each employee type
 function askIntern() {
@@ -124,7 +116,6 @@ function askIntern() {
       } else if (answers.employeeType === "Intern") {
         askIntern();
       } else if (answers.employeeType === "Done") {
-        console.log(employees);
         const htmlPageContent = generateHtml(employees);
 
         fs.writeFile("./dist/index.html", htmlPageContent, (err) =>
@@ -179,7 +170,6 @@ function askEngineer() {
       } else if (answers.employeeType === "Intern") {
         askIntern();
       } else if (answers.employeeType === "Done") {
-        console.log(employees);
         const htmlPageContent = generateHtml(employees);
 
         fs.writeFile("./dist/index.html", htmlPageContent, (err) =>
@@ -190,7 +180,7 @@ function askEngineer() {
       }
     });
 }
-
+//init function that leads into other functions
 const employees = [];
 function askManager() {
   inquirer
@@ -234,7 +224,7 @@ function askManager() {
         askIntern();
       } else if (answers.employeeType === "Engineer") {
         askEngineer();
-        // Ask questions specific to engineers
+        // finishes app if done
       } else if (answers.employeeType === "Done") {
         const htmlPageContent = generateHtml(employees);
 

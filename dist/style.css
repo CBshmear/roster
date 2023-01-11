@@ -1,0 +1,45 @@
+.cards {
+  display: flex;
+}
+body {
+  background-color: beige;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+header {
+  display: flex;
+  height: 150px;
+  background-color: burlywood;
+  text-align: center;
+  justify-content: center;
+  margin: 1px;
+}
+
+.manager {
+  width: 200px;
+  height: 200px;
+  border: solid black 2px;
+  margin: 5px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: rgb(181, 181, 126);
+}
+
+.engineer {
+  width: 200px;
+  height: 200px;
+  border: solid black 2px;
+  margin: 5px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: rgb(181, 181, 126);
+}
+
+.intern {
+  width: 200px;
+  height: 200px;
+  border: solid black 2px;
+  margin: 5px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: rgb(181, 181, 126);
+}
