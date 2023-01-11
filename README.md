@@ -9,6 +9,8 @@ To run this application you must install inquirer and jest to run the tests. The
 
 ## Usage
 To initialize this app in the command line from the roster folder, run the command "node index.js"
+Here is a link to a walkthrough video of the apps functionality and passing tests:
+https://drive.google.com/file/d/1b87vR4wRbKc5NBPq3EXWD7_wSELg-PCw/view 
 
 ## Credits
 Good ol' instructor Charlie Werness gave me some pointers.
